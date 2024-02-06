@@ -1,17 +1,10 @@
-import { useAccount, useConnect } from 'wagmi'
-import { InjectedConnector } from 'wagmi/connectors/injected'
+import React from 'react';
+import { DynamicWidget } from "@dynamic-labs/sdk-react-core";
 
-export default function Home() {
-  const { address, isConnected } = useAccount()
-  const { connect } = useConnect({
-    connector: new InjectedConnector()
-    })
+const Home: React.FC = () => {
   return (
-    <>
-      <div>
-        <button onClick={() => connect()}>Connect</button>
-        <p>{isConnected && address}</p>
-      </div>
-    </>
+    <DynamicWidget />
   );
 }
+
+export default Home;
